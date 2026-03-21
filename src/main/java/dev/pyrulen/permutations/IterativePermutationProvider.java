@@ -3,6 +3,11 @@ package dev.pyrulen.permutations;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * https://www.quickperm.org/quickperm.html
+ *
+ * credit Phillip Paul Fuchs
+ */
 public class IterativePermutationProvider implements PermutationProvider {
     @Override
     public Set<char[]> getPermutations(char[] source) {
