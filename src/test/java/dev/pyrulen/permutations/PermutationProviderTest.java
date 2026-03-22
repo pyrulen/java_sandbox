@@ -48,7 +48,7 @@ public abstract class PermutationProviderTest {
                 "3412",
                 "3421"
         );
-        Set<String> actual = provider.getPermutations(source.toCharArray()).stream().map(String::new).collect(Collectors.toSet());
+        Set<String> actual = provider.getPermutations(source.toCharArray());
         assertEquals(expected, actual);
     }
 }

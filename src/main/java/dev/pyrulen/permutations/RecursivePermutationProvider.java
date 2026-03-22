@@ -5,10 +5,10 @@ import java.util.Set;
 
 public class RecursivePermutationProvider implements PermutationProvider {
     @Override
-    public Set<char[]> getPermutations(char[] source) {
-        Set<char[]> results = new HashSet<>();
+    public Set<String> getPermutations(char[] source) {
+        Set<String> results = new HashSet<>();
         if (source.length == 0) {
-            return Set.of(new char[]{});
+            return Set.of("");
         }
         for(int i = 0; i < source.length; i++) {
             char c =  source[i];
@@ -18,12 +18,9 @@ public class RecursivePermutationProvider implements PermutationProvider {
                     remainder[k++] = source[j];
                 }
             }
-            Set<char[]> childPermutations = getPermutations(remainder);
-            for(char[] child : childPermutations) {
-                char[] permutation = new char[child.length + 1];
-                permutation[0] = c;
-                System.arraycopy(child, 0, permutation, 1, child.length);
-                results.add(permutation);
+            Set<String> childPermutations = getPermutations(remainder);
+            for(String child : childPermutations) {
+                results.add(c + child);
             }
         }
         return results;
